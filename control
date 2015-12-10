@@ -1,0 +1,11 @@
+Package: ar.com.povaddict.yelo-play-antijb
+Version: 0.1~beta1-1
+Section: Tweaks
+Maintainer: Nicolas Alvarez <nicolas.alvarez@gmail.com>
+Author: Nicolas Alvarez <nicolas.alvarez@gmail.com>
+Depends: firmware (>= 6.0)
+Architecture: iphoneos-arm
+Name: Yelo Play anti-jailbreak
+Description: Bypass jailbreak detection in Yelo Play
+ This tweak, in theory, bypasses the jailbreak detection in the Yelo Play app.
+ But I haven't even tested it :)
