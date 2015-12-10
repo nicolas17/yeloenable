@@ -18,8 +18,8 @@ YeloEnable.dylib: YeloEnable.o
 	ldid -S $@
 
 install: all
-	install -D -v YeloEnable.dylib $(DESTDIR)/Library/MobileSubstrate/DynamicLibraries/YeloEnable.dylib
-	install -D -v YeloEnable.plist $(DESTDIR)/Library/MobileSubstrate/DynamicLibraries/YeloEnable.plist
+	install -D -v -m0755 YeloEnable.dylib $(DESTDIR)/Library/MobileSubstrate/DynamicLibraries/YeloEnable.dylib
+	install -D -v -m0644 YeloEnable.plist $(DESTDIR)/Library/MobileSubstrate/DynamicLibraries/YeloEnable.plist
 
 package:
 	sudo rm -rf stage || rm -rf stage
