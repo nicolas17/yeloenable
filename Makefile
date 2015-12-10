@@ -22,9 +22,12 @@ install: all
 	install -D -v YeloEnable.plist $(DESTDIR)/Library/MobileSubstrate/DynamicLibraries/YeloEnable.plist
 
 package:
-	rm -rf stage
+	sudo rm -rf stage || rm -rf stage
+	mkdir stage
 	$(MAKE) install DESTDIR=stage
-	mkdir -p stage/DEBIAN
+	mkdir stage/DEBIAN
 	cp control stage/DEBIAN
+	-sudo chown -R 0:0 stage
 	dpkg-deb --build stage stage.deb
 	dpkg-name -a -o stage.deb
+	sudo rm -rf stage || rm -rf stage
