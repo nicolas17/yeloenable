@@ -1,14 +1,17 @@
 SDKPATH=/var/mobile/Documents/iPhoneOS8.1.sdk
 
-CFLAGS=-isysroot ${SDKPATH}
-LDFLAGS=-isysroot ${SDKPATH}
+CFLAGS=-isysroot ${SDKPATH} -F /Library/Frameworks
+LDFLAGS=-isysroot ${SDKPATH} -F /Library/Frameworks \
+		-framework Foundation \
+		-framework CydiaSubstrate
 
 .PHONY: all
 
-all: main
+all: YeloEnable.dylib
 
-main: main.o
-	clang -o $@ main.o $(LDFLAGS)
-
-main.o: main.c
+YeloEnable.o: YeloEnable.m
 	clang -c $< -o $@ $(CFLAGS)
+
+YeloEnable.dylib: YeloEnable.o
+	clang -shared -o $@ YeloEnable.o $(LDFLAGS)
+	ldid -S $@
